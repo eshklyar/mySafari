@@ -21,6 +21,16 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+//show spinner on tip left while website is loading
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
+//stop spinner
+- (void)webViewDidStopLoad:(UIWebView *)webView {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
 
@@ -29,12 +39,15 @@
     [self.webView loadRequest:urlRequest];
     return YES;
 
-
-
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)doGoBack:(id)sender {
+    [self.webView goBack];
+}
+
 
 @end
