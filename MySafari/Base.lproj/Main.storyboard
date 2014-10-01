@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hgs-hS-LQ7">
+                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hgs-hS-LQ7">
                                 <rect key="frame" x="76" y="59" width="483" height="533"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="agl-BH-85C"/>
                                 </connections>
                             </webView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCN-t6-rdK">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCN-t6-rdK">
                                 <rect key="frame" x="384" y="230" width="55" height="51"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZN0-XN-7BT">
@@ -77,6 +78,18 @@
                                             <action selector="onForwardButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="L75-69-ocC"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdC-1O-1af">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" title="X">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="177" y="18" width="30" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="onStoppedLoadingButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vwm-xB-gOu"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -90,6 +103,7 @@
                                     <mask key="subviews">
                                         <exclude reference="ZN0-XN-7BT"/>
                                         <exclude reference="wWr-bI-fl5"/>
+                                        <exclude reference="WdC-1O-1af"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="VRX-he-H6e"/>
@@ -103,6 +117,7 @@
                                     <mask key="subviews">
                                         <include reference="ZN0-XN-7BT"/>
                                         <include reference="wWr-bI-fl5"/>
+                                        <include reference="WdC-1O-1af"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="VRX-he-H6e"/>
@@ -184,6 +199,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="onStoppedLoadingButtonPressed" destination="WdC-1O-1af" id="z3W-g5-bgW"/>
                         <outlet property="urlTextField" destination="gvc-oD-7PA" id="GxM-Z9-oNV"/>
                         <outlet property="webView" destination="Hgs-hS-LQ7" id="BTu-TJ-GSw"/>
                     </connections>

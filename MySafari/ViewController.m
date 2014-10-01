@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *urlTextField;
 
 
+
 @end
 
 @implementation ViewController
@@ -44,6 +45,9 @@
     return YES;
 }
 
+- (IBAction)onStoppedLoadingButtonPressed:(id)sender {
+    [self.webView stopLoading];
+}
 
 - (IBAction)onBackButtonPressed:(id)sender {
     [self.webView goBack];
@@ -52,7 +56,6 @@
 - (IBAction)onForwardButtonPressed:(id)sender {
     [self.webView goForward];
 }
-
 
 
 - (void)didReceiveMemoryWarning {
